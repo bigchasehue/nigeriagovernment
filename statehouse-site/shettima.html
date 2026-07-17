@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presidential Villa - State House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Positions the Translate dropdown inside the navigation. */
+    .translate-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Styles the Translate button. */
+    .translate-btn {
+      background: #006b3f;
+      color: #ffffff;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Hides the language panel until the Translate button is hovered or focused. */
+    .translate-content {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: 190px;
+      padding: 14px;
+      background: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+      z-index: 9999;
+    }
+
+    /* Shows the language panel when the Translate area is active. */
+    .translate-dropdown:hover .translate-content,
+    .translate-dropdown:focus-within .translate-content {
+      display: block;
+    }
+
+    /* Styles the Language label. */
+    .t-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333333;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Styles the custom language select box. */
+    .lang-select {
+      width: 100%;
+      padding: 10px;
+      color: #222222;
+      background: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+    }
+
+    /* Keeps the real Google Translate widget off-screen. */
+    .google-translate-hidden {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* Stops Google Translate from pushing the page down. */
+    body {
+      top: 0 !important;
+    }
+
+    /* Hides Google Translate banner frames. */
+    iframe.goog-te-banner-frame,
+    .goog-te-banner-frame,
+    .VIpgJd-ZVi9od-ORHb-OEVmcd {
+      display: none !important;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="images/president seal.png" alt="Presidential Seal of Nigeria" class="logo-img">
+        <div class="logo-text">
+          <span class="top-line">PRESIDENTIAL VILLA</span>
+          <span class="bottom-line">STATE HOUSE</span>
+        </div>
+      </a>
+
+      <input type="checkbox" id="global-nav-toggle" class="global-nav-toggle">
+      <label for="global-nav-toggle" class="global-nav-label" aria-label="Toggle navigation menu">&#9776;</label>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="leadership.html" class="active">The Leadership</a>
+
+        <div class="dropdown">
+          <div class="dropdown-header">
+            <a href="presidency.html" class="drop-text">Presidency</a>
+            <label for="presidency-toggle" class="drop-arrow">&#9660;</label>
+          </div>
+          <input type="checkbox" id="presidency-toggle" class="drop-checkbox">
+
+          <div class="dropdown-content">
+            <a href="president-office.html">Office of the President</a>
+            <a href="vp-office.html">Office of the Vice President</a>
+            <a href="https://www.osgf.gov.ng/" target="_blank" rel="noopener">Office of the Secretary to the Government of Federation <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i></a>
+            <a href="https://ohcsf.gov.ng/" target="_blank" rel="noopener">Office of the Head of Civil Service to the Federation <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i></a>
+            <a href="http://nctc.gov.ng/" target="_blank" rel="noopener">Office of the National Security Adviser <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i></a>
+
+            <div class="dropdown-sub">
+              <div class="dropdown-header">
+                <label for="sha-toggle" class="drop-text sub-text">State House Administration</label>
+                <label for="sha-toggle" class="drop-arrow sub-arrow">&#9660;</label>
+              </div>
+              <input type="checkbox" id="sha-toggle" class="drop-checkbox">
+              <div class="dropdown-sub-content">
+                <a href="perm-sec.html">Office of the Permanent Secretary</a>
+                <a href="management.html">Management</a>
+                <a href="organogram.html">Organogram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="cabinet.html">Cabinet</a>
+        <a href="policy.html">Policy</a>
+        <a href="press.html">Press Office</a>
+        <a href="villa.html">Presidential Villa</a>
+        <a href="contact.html">Contact Us</a>
+
+        <a href="search.html" class="search-btn" aria-label="Search">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </a>
+
+       
+         <div class="translate-dropdown">
+          <button class="translate-btn" type="button">Translate</button>
+
+          <div class="translate-content">
+            <label class="t-label" for="language-select">Language</label>
+
+            <select class="lang-select" id="language-select" aria-label="Select language">
+              <option value="">Select language</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="yo">Yoruba</option>
+              <option value="ha">Hausa</option>
+              <option value="ig">Igbo</option>
+            </select>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="bio-page-hero">
+    <div class="bio-hero-inner">
+      <span class="banner-badge">Vice President</span>
+      <h1>Kashim Shettima (GCON)</h1>
+      <p>Vice President, Federal Republic of Nigeria</p>
+    </div>
+  </div>
+
+  <div class="bio-content-wrap">
+    <div class="bio-portrait">
+      <img src="images/shettima.svg" alt="Kashim Shettima (GCON) Portrait">
+    </div>
+    <div class="bio-text">
+      <h2>Biography</h2>
+      <p>Senator Kashim Shettima is the current Vice President of Nigeria. Prior to his elevation to the federal executive, he served two terms as Governor of Borno State from 2011 to 2019.</p>
+<p>During his tenure as Governor, Shettima navigated the state through a period of significant security challenges while advancing programmes in education and post-conflict recovery.</p>
+<p>As Vice President, Shettima has taken a leading role in national security coordination, job creation, and Nigeria's engagement in continental and global economic partnerships.</p>
+      <ul class="bio-facts">
+        <li>Born September 2, 1966 in Maiduguri, Borno State</li><li>Former Governor of Borno State (2011&ndash;2019)</li><li>Former Senator representing Borno Central</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <section class="pre-footer-section">
+    <div class="pre-footer-container">
+      <div class="subscribe-row">
+        <div class="subscribe-text">
+          <h2>Subscribe to our<br>newsletter</h2>
+          <p>For the latest updates straight in your inbox.</p>
+        </div>
+        <form class="subscribe-form" action="#" method="POST">
+          <input type="email" placeholder="Your Email Address" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
+      <div class="bottom-info-row">
+        <div class="state-house-info">
+          <div class="sh-logo">
+            <img src="images/president seal.png" alt="Seal">
+            <h3>STATE HOUSE</h3>
+          </div>
+          <p>Aso - Rock Villa, Abuja, Nigeria</p>
+          <p>&#9993; info@statehouse.gov.ng</p>
+          <p>&#128222; +234 2096 252 000</p>
+        </div>
+
+        <div class="footer-links-wrap">
+          <div class="bottom-links">
+            <a href="leadership.html">The Leadership</a>
+            <a href="presidency.html">Presidency</a>
+            <a href="cabinet.html">Cabinet</a>
+            <a href="policy.html">Policy</a>
+            <a href="press.html">Press Office</a>
+            <a href="villa.html">Presidential Villa</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/TheAsoVilla" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/TheAsoVilla" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11a5 5 0 015 5v11a5 5 0 01-5 5h-11a5 5 0 01-5-5v-11a5 5 0 015-5z"></path></svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UC_ei8o3S3CuCC9gD5fTZ2VQ/" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33zM9.75 15.02V8.48l6.5 3.27-6.5 3.27z"></path></svg>
+            </a>
+            <a href="https://www.twitter.com/NGRPresident" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://www.medium.com/@TheAsoVilla" target="_blank" rel="noopener" class="social-icon" aria-label="Medium">
+              <svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="5"></circle><ellipse cx="16" cy="12" rx="3" ry="5"></ellipse><ellipse cx="21" cy="12" rx="1" ry="5"></ellipse></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Federal Republic of Nigeria. All Rights Reserved.</p>
+      <p>Unity and Faith, Peace and Progress</p>
+    </div>
+  </footer>
+
+  <script>
+    // Wires up the "Big / Default / Small" text-size buttons already present
+    // in the Translate menu. Kept intentionally tiny: one job, no dependencies.
+    document.querySelectorAll('.font-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.documentElement.classList.remove('text-big', 'text-small');
+        document.querySelectorAll('.font-btn').forEach(function (b) { b.classList.remove('is-active'); });
+        var size = btn.getAttribute('data-size');
+        if (size === 'big') document.documentElement.classList.add('text-big');
+        if (size === 'small') document.documentElement.classList.add('text-small');
+        btn.classList.add('is-active');
+      });
+    });
+  </script>
+  <div id="google_translate_element" class="google-translate-hidden"></div>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,yo,ha,ig',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var langSelect = document.querySelector('.lang-select');
+
+      if (!langSelect) return;
+
+      langSelect.addEventListener('change', function () {
+        var selectedLanguage = langSelect.value;
+        var googleSelect = document.querySelector('.goog-te-combo');
+
+        if (!selectedLanguage) return;
+
+        if (!googleSelect) {
+          alert('Translator is still loading. Please try again in a second.');
+          return;
+        }
+
+        googleSelect.value = selectedLanguage;
+        googleSelect.dispatchEvent(new Event('change'));
+      });
+    });
+  </script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+</body>
+</html>
